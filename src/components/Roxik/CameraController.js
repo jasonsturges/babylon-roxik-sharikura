@@ -30,7 +30,6 @@ export default class CameraController {
    * Frame handler
    */
   step() {
-    debugger;
     if (++this.frame > this.sceneLimit) {
       this.frame = 0;
       this.sceneLimit = Math.floor((Math.random() * 60) + 30);
@@ -54,15 +53,18 @@ export default class CameraController {
     this.target.y += ((this.tm.position.y - this.target.y) * this.ts);
     this.target.z += ((this.tm.position.z - this.target.z) * this.ts);
 
-    this.camera.setTarget(this.target);
+    // TODO: focusOn([this.tm]) - avoid zoom on setTarget?
+    // this.camera.focusOn([this.tm]);
+    // this.camera.setTarget(this.target);
 
     this.r += this.rp;
     this.l += ((this.bl - this.l) * 0.1);
 
-    this.position.x = (((Math.cos(this.r) * this.l) + this.tm.position.x) - this.camera.position.x) * this.cs;
-    this.position.y = ((this.tm.position.y + this.gy) - this.camera.position.y) * this.cs;
-    this.position.z = (((Math.sin(this.r) * this.l) + this.tm.position.z) - this.camera.position.z) * this.cs;
+    this.position.x = (((Math.cos(this.r) * this.l) + this.tm.position.x) - this.position.x) * this.cs;
+    this.position.y = ((this.tm.position.y + this.gy) - this.position.y) * this.cs;
+    this.position.z = (((Math.sin(this.r) * this.l) + this.tm.position.z) - this.position.z) * this.cs;
 
+    // TODO: Position after determining zoom issues with camera lookAt.
     // this.camera.position = this.position;
   }
 }
