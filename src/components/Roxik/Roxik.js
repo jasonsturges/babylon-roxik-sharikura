@@ -70,13 +70,7 @@ export default class Roxik extends React.Component {
   }
 
   initializeCamera() {
-    // TODO: target camera?
-    //this.camera = new BABYLON.TargetCamera("TargetCamera", new BABYLON.Vector3(0, 0, -10), this.scene);
-
-    this.camera = new BABYLON.ArcRotateCamera('ArcRotateCamera', 0, 0, -10, BABYLON.Vector3.Zero(), this.scene);
-    this.camera.position.x = 2;
-    this.camera.position.y = 2;
-    this.camera.position.z = -2;
+    this.camera = new BABYLON.ArcRotateCamera('ArcRotateCamera', 0, 0, -10, new BABYLON.Vector3(18, 18, 18), this.scene);
     this.camera.setTarget(BABYLON.Vector3.Zero());
     this.camera.attachControl(this.babylon, true);
 
@@ -98,10 +92,13 @@ export default class Roxik extends React.Component {
     this.sphereMaterial = [];
 
     for (let i = 0; i < 8; i++) {
-      const mat = new BABYLON.StandardMaterial("material", this.scene);
-      mat.emissiveColor = new BABYLON.Color3.FromHexString(colors[i]);
-      this.sphereMaterial.push(mat);
+      const material = new BABYLON.StandardMaterial("material", this.scene);
+      material.emissiveColor = new BABYLON.Color3.FromHexString(colors[i]);
+      this.sphereMaterial.push(material);
     }
+
+    this.cubeMaterial = new BABYLON.StandardMaterial("cubeMaterial", this.scene);
+    this.cubeMaterial.wireframe = true;
   }
 
   initializeObjects() {
@@ -122,6 +119,9 @@ export default class Roxik extends React.Component {
       }
     }
 
+    this.cube = BABYLON.MeshBuilder.CreateBox("myBox", {height: 18, width: 18, depth: 18}, this.scene);
+    this.cube.material = this.cubeMaterial;
+
     this.cameraController.models = this.models;
 
     this.motionController = new MotionController();
@@ -130,6 +130,14 @@ export default class Roxik extends React.Component {
   }
 
   initializeFilters() {
+    // TODO: Bokeh
+    // const pipeline = new BABYLON.DefaultRenderingPipeline('fx', false, this.scene, [this.camera]);
+    //
+    // pipeline.depthOfFieldBlurLevel = BABYLON.DepthOfFieldEffectBlurLevel.High;
+    // pipeline.depthOfFieldEnabled = true;
+    // pipeline.depthOfField.fStop = 1.4 * 0.7;
+    // pipeline.depthOfField.focusDistance = 1000; //mm
+    // pipeline.depthOfField.focalLength = 10 * 0.5; //mm
   }
 
   initializeListeners() {

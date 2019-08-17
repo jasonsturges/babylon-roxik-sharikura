@@ -2,11 +2,16 @@ import * as BABYLON from 'babylonjs';
 
 export default class CameraController {
 
+  //------------------------------
+  //  model
+  //------------------------------
+
   camera = null;
   models = [];
   frame = 1000;
   sceneLimit = 90;
   target = new BABYLON.Vector3(0, 0, 0);
+  position = new BABYLON.Vector3(0, 0, 0);
   tm = null;
   cs = 0;
   gy = 0;
@@ -15,6 +20,11 @@ export default class CameraController {
   ts = 0;
   r = 0;
   rp = 0.03;
+
+
+  //------------------------------
+  //  methods
+  //------------------------------
 
   /**
    * Frame handler
@@ -44,15 +54,15 @@ export default class CameraController {
     this.target.y += ((this.tm.position.y - this.target.y) * this.ts);
     this.target.z += ((this.tm.position.z - this.target.z) * this.ts);
 
-    // TODO: target.position not working?
-    this.camera.target.x = this.target.x;
-    this.camera.target.y = this.target.y;
-    this.camera.target.z = this.target.z;
+    this.camera.setTarget(this.target);
 
     this.r += this.rp;
     this.l += ((this.bl - this.l) * 0.1);
-    this.camera.position.x += ((((Math.cos(this.r) * this.l) + this.tm.position.x) - this.camera.position.x) * this.cs);
-    this.camera.position.y += (((this.tm.position.y + this.gy) - this.camera.position.y) * this.cs);
-    this.camera.position.z += ((((Math.sin(this.r) * this.l) + this.tm.position.z) - this.camera.position.z) * this.cs);
+
+    this.position.x = (((Math.cos(this.r) * this.l) + this.tm.position.x) - this.camera.position.x) * this.cs;
+    this.position.y = ((this.tm.position.y + this.gy) - this.camera.position.y) * this.cs;
+    this.position.z = (((Math.sin(this.r) * this.l) + this.tm.position.z) - this.camera.position.z) * this.cs;
+
+    // this.camera.position = this.position;
   }
 }
