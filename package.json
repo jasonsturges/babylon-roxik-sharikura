@@ -6,11 +6,13 @@
   "homepage": "https://jasonsturges.github.io/babylon-roxik-sharikua",
   "private": false,
   "dependencies": {
+    "babylonjs": "^4.0.3",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
