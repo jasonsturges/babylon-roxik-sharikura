@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Babylon.js Roxik Sharikura performance demo",
   "author": "Jason Sturges",
-  "homepage": "https://jasonsturges.github.io/babylon-roxik-sharikua",
+  "homepage": "https://jasonsturges.github.io/babylon-roxik-sharikura",
   "private": false,
   "dependencies": {
     "babylonjs": "^4.0.3",
