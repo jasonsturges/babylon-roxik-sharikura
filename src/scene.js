@@ -91,4 +91,8 @@ export const createScene = (canvas) => {
     stepMotion();
     scene.render();
   });
+
+  window.addEventListener('resize', () => {
+    engine.resize();
+  });
 };
