@@ -1,5 +1,8 @@
-# Babylon Roxik Sharikura
+# Babylon.js Roxik Sharikura
 Recreation of Roxik Sharikura performance example using Babylon.js
+
+![babylon-roxik-sharikura](https://user-images.githubusercontent.com/1213591/102725536-02604000-42dd-11eb-8e42-bc45c230b18d.png)
+
 
 ## Getting Started
 
