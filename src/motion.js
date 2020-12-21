@@ -233,7 +233,7 @@ const gravity = () => {
 
 const antigravity = () => {
   motionType = MotionType.ANTIGRAVITY;
-  
+
   for (let i = 0; i < models.length; i++) {
     const m = models[i];
     m.speed = 0;
