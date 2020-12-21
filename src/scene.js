@@ -84,7 +84,7 @@ export const createScene = (canvas) => {
   cubeMaterial.wireframe = true;
   cube.material = cubeMaterial;
 
-  changeMotion(MotionType.CYLINDER);
+  changeMotion(MotionType.CUBE);
 
   engine.runRenderLoop(() => {
     step(camera);
