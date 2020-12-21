@@ -1,6 +1,7 @@
 import BABYLON from "babylonjs";
 import { step } from "./camera";
-import { changeMotion, MotionType, stepMotion } from "./motion";
+import { changeMotion, stepMotion } from "./motion";
+import { MotionType } from "./MotionType";
 import "./keyboard";
 
 export const models = [];
