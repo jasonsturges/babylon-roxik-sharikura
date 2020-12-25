@@ -55,9 +55,9 @@ export const createScene = (canvas) => {
     sphereMaterials.push(material);
   }
 
-  const bet = 0.7;
-  const offset = (8 - 1) * bet * 0.5;
   const length = 8;
+  const bet = 0.8;
+  const offset = (length - 1) * bet * 0.5;
 
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length; j++) {
