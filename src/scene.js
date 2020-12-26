@@ -1,5 +1,5 @@
 import BABYLON from "babylonjs";
-import { step } from "./camera";
+import { stepCamera } from "./camera";
 import { changeMotion, stepMotion } from "./motion";
 import { MotionType } from "./MotionType";
 import "./keyboard";
@@ -88,7 +88,7 @@ export const createScene = (canvas) => {
   changeMotion(MotionType.CUBE);
 
   engine.runRenderLoop(() => {
-    step(camera);
+    stepCamera(camera);
     stepMotion();
     scene.render();
   });

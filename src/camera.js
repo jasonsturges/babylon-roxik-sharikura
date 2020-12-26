@@ -13,7 +13,7 @@ let ts = 0;
 let r = 0;
 let rp = 0.03;
 
-export const step = (camera) => {
+export const stepCamera = (camera) => {
   if (++frame > sceneLimit) {
     frame = 0;
     sceneLimit = Math.floor(Math.random() * 60 + 30);
