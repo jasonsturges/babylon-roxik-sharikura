@@ -20,6 +20,14 @@ export const createScene = (canvas) => {
   );
   camera.attachControl(engine, true);
 
+  const parameters = {
+    blur_noise: false,
+    dof_aperture: 0.5,
+    dof_focus_distance: 1000
+  };
+  const lensEffect = new BABYLON.LensRenderingPipeline('lensEffects', parameters, scene, 1.0, camera);
+
+
   const directionalLight = new BABYLON.DirectionalLight(
     "DirectionalLight",
     new BABYLON.Vector3(-10, 10, -10).normalize(),
