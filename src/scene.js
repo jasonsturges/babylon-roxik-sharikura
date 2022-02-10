@@ -1,4 +1,4 @@
-import BABYLON from "babylonjs";
+import * as BABYLON from "babylonjs";
 import { stepCamera } from "./camera";
 import { changeMotion, stepMotion } from "./motion";
 import { MotionType } from "./MotionType";
